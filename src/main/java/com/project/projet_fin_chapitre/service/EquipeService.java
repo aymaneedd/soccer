@@ -32,4 +32,13 @@ public class EquipeService {
     public Equipe updateEquipe(Equipe m){
         return er.save(m);
     }
+
+    public List<Equipe> findByPays(String pays) {
+        return er.findByPays(pays);
+    }
+
+    public Equipe findByNomEquipe(String nomEquipe) {
+
+        return er.findByNomEquipe(nomEquipe);
+    }
 }

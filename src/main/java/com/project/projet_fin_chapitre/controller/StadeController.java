@@ -1,6 +1,7 @@
 package com.project.projet_fin_chapitre.controller;
 
 import com.project.projet_fin_chapitre.entities.Stade;
+import com.project.projet_fin_chapitre.service.MatshService;
 import com.project.projet_fin_chapitre.service.StadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ public class StadeController {
 
     @Autowired
     StadeService ss;
+
+    @Autowired
+    MatshService ms;
 
     @GetMapping("stades")
     public List<Stade> getAllStades(){
@@ -37,5 +41,11 @@ public class StadeController {
     @PutMapping("stades")
     public Stade updateStade(@RequestBody Stade s){
         return ss.updateStade(s);
+    }
+
+    @GetMapping("stade3")
+    public String findStadePartido(){
+        Stade stade = ms.findById(3L).getStade();
+        return stade.getNomStade();
     }
 }

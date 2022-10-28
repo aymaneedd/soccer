@@ -32,4 +32,8 @@ public class StadeService {
     public Stade updateStade(Stade s){
         return sr.save(s);
     }
+
+    public Optional<Stade> findById(Long id) {
+        return sr.findById(id);
+    }
 }
